@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Roboto&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +6,8 @@
 }
 
 .intro {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 2rem;
   text-align: center;
   background-color: #008000;
   color: hsl(0, 0%, 100%);
@@ -22,7 +25,7 @@ form {
   flex-direction: row;
   padding: 3px 1px 2px 1px;
   bottom: 5px;
-  width: 50%;
+  width: 90%;
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -46,10 +49,11 @@ form button {
   padding: 5px;
   font-size: 20px;
   border-radius: 4px 4px 4px 4px;
+  font-family: "Be Vietnam Pro", sans-serif;
 }
 
 .msg {
-  max-width: 50%;
+  max-width: 60%;
   padding: 10px;
   margin: 1px 5px 1px 5px;
   background: #f1f1f1;
@@ -62,13 +66,14 @@ form button {
   order: 0;
   border-radius: 4px;
   word-wrap: break-word;
+  font-family: "Roboto", sans-serif;
 }
 /* #messages li:nth-child(odd) {
   align-self: right;
 } */
 
 .msg-container {
-  width: 50%;
+  width: 90%;
   display: flex;
   margin: auto;
   flex-direction: column;
@@ -88,7 +93,7 @@ form button {
   align-self: center;
 }
 .imag {
-  width: 500px;
+  width: 350;
   border: white solid 7px;
   margin: 5px;
   border-radius: 3px;
@@ -99,4 +104,30 @@ form button {
 }
 .self-img {
   align-self: flex-end;
+}
+#files {
+  display: none;
+}
+.send-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#send-img {
+  width: 9%;
+  background: #00e600;
+  border: none;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 4px 4px 4px 4px;
+  margin-bottom: 10px;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+@media only screen and (min-width: 520px) {
+  .msg-container {
+    width: 70%;
+  }
+  form {
+    width: 70%;
+  }
 }

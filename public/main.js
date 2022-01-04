@@ -1,3 +1,4 @@
+var uc = 0;
 var socket = io();
 function getImageDimensions(image) {
   return new Promise((resolve, reject) => {
@@ -39,7 +40,7 @@ imageInput.addEventListener("change", async (ev) => {
 
   //get the dimensions of the input image
   const { height, width } = await getImageDimensions(inputPreview);
-  const MAX_WIDTH = 500; //if we resize by width, this is the max width of compressed image
+  const MAX_WIDTH = 350; //if we resize by width, this is the max width of compressed image
   const MAX_HEIGHT = (height / width + 1) * MAX_WIDTH;
   const widthRatioBlob = await compressImage(
     inputPreview,
@@ -61,7 +62,20 @@ imageInput.addEventListener("change", async (ev) => {
       : widthRatioBlob;
   const optimalBlob =
     compressedBlob.size < uploadedImage.size ? compressedBlob : uploadedImage;
-  img = URL.createObjectURL(optimalBlob);
+  //converting from blob to base 64
+  var reader = new FileReader();
+  reader.readAsDataURL(optimalBlob);
+  var base64String;
+  reader.onloadend = function () {
+    base64String = reader.result;
+    img = base64String;
+    // var check = base64String.substr(0, 23);
+    // var IND;
+    // if (check.indexOf("png") === -1) IND = 23;
+    // else IND = 22;
+    // var sub = base64String.substr(IND);
+    // img = sub;
+  };
 });
 
 socket.emit("joining msg", userName);
@@ -89,27 +103,33 @@ $("form").submit(function (e) {
     );
     img = null;
     document.getElementById("files").value = null;
+    window.scrollTo(0, document.body.scrollHeight);
   }
   //emit only sends to everyone
   $("#messages").append($('<div class = "msg self">').text($("#m").val()));
   $("#m").val("");
-  window.scrollTo(0, 1000);
+  window.scrollTo(0, document.body.scrollHeight);
   return false;
 });
 socket.on("chat message", function (msg) {
   $("#messages").append($('<div class = "msg">').text(msg));
-  window.scrollTo(0, 1000);
+  window.scrollTo(0, document.body.scrollHeight);
 });
 socket.on("chat message conn", function (msg) {
   $("#messages").append($('<div class = "conn msg">').text(msg));
-  window.scrollTo(0, 1000);
+  window.scrollTo(0, document.body.scrollHeight);
 });
 // showing media to ui
 socket.on("base64 image", (msg) => {
-  console.log("as", msg);
   $("#messages").append(
     `<div class="imag"><img src=${msg}  alt="Red dot" /></div>`
   );
-  window.scrollTo(0, 1000);
+  window.scrollTo(0, document.body.scrollHeight);
   //scrollToBottom();
+});
+socket.on("user count", (ucount) => {
+  $("#user-count").text(ucount);
+});
+$("#send-img").on("click", function (e) {
+  $("#files").click();
 });

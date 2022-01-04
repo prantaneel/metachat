@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Metachat</title>
     <script>
@@ -12,14 +16,22 @@
   </head>
   <body>
     <div class="intro">
-      <h1>Chatroom</h1>
+      <h1>
+        metachat
+        <div id="user-count" style="font-size: 50%"></div>
+      </h1>
     </div>
     <div class="msg-container" id="messages"></div>
     <form>
       <input id="m" placeholder="boop" autocomplete="off" required /><button>
-        Send
+        <i class="material-icons" style="font-size: 16px">send</i>
       </button>
     </form>
+    <div class="send-image">
+      <button id="send-img">
+        <i class="material-icons" style="font-size: 16px">image</i>
+      </button>
+    </div>
     <input type="file" id="files" accept="image/*" />
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
