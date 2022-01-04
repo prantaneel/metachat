@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Metachat</title>
+    <script>
+      var userName = prompt("What should others call you?");
+    </script>
+  </head>
+  <body>
+    <div class="intro">
+      <h1>Chatroom</h1>
+    </div>
+    <div class="msg-container" id="messages"></div>
+    <form>
+      <input id="m" placeholder="boop" autocomplete="off" required /><button>
+        Send
+      </button>
+    </form>
+    <input type="file" id="files" accept="image/*" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <!-- Start of script-------------------------------------- -->
+    <script src="./main.js"></script>
+    <!-- end of script------------------------------------------------>
+  </body>
+</html>

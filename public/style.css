@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.intro {
+  text-align: center;
+  background-color: #008000;
+  color: hsl(0, 0%, 100%);
+  height: 5%;
+  margin-bottom: 10px;
+}
+
+body {
+  font: 20px;
+}
+
+form {
+  background-color: gray;
+  display: flex;
+  flex-direction: row;
+  padding: 3px 1px 2px 1px;
+  bottom: 5px;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border-radius: 0px 0px 4px 4px;
+  margin-bottom: 5px;
+}
+
+form input {
+  background-color: #e6ffe6;
+  border: 0;
+  padding: 10px;
+  width: 90%;
+  margin-right: 0.5%;
+  border-radius: 4px 4px 4px 4px;
+}
+
+form button {
+  width: 9%;
+  background: #00e600;
+  border: none;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.msg {
+  max-width: 50%;
+  padding: 10px;
+  margin: 1px 5px 1px 5px;
+  background: #f1f1f1;
+  min-height: 20px;
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+  border-radius: 4px;
+  word-wrap: break-word;
+}
+/* #messages li:nth-child(odd) {
+  align-self: right;
+} */
+
+.msg-container {
+  width: 50%;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  background-color: gray;
+  border-radius: 4px 4px 0px 0px;
+  padding: 5px;
+}
+.self {
+  text-align: right;
+  align-self: flex-end;
+}
+.conn {
+  align-self: center;
+}
+.imag {
+  width: 500px;
+  border: white solid 7px;
+  margin: 5px;
+  border-radius: 3px;
+}
+.imag img {
+  width: 100%;
+  height: auto;
+}
+.self-img {
+  align-self: flex-end;
+}
